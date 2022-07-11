@@ -12,9 +12,9 @@ env:
   GKE_ZONE: ${{ secrets.GOOGLE_STAGING_COMPUTE_ZONE }}       # The Project Zone                   
   REPOSITORY: ${{ secrets.DEPLOYMENT_NAME }}                          # The Repository name
   IMAGE: docker.io/odenigbojohnmary/bravado:final                       # The container image name and tag
-  CHART_NAME: ${{ secrets.DEPLOYMENT_NAME }}                           # The Pchart name from helm-charts repo
+  CHART_NAME: new-api-web                           # The Pchart name from helm-charts repo
   PROJECT_CREDENTIALS: ${{ secrets.GCP_STAGING_CREDENTIALS }}  # The GCP JSON Credentials 
-  APPLICATION_HELM_VALUE: helm/qa.yaml                            # The helm deployment directory 
+  APPLICATION_HELM_VALUE: helm/application.yaml                            # The helm deployment directory 
   PG_NAME: postgres
   PG_HELM_VALUE: helm/pg.yaml
   NAMESPACE: default                                           # The kubernetes namespace
