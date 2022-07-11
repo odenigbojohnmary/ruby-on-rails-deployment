@@ -35,12 +35,12 @@ jobs:
         credentials_json: '${{ env.PROJECT_CREDENTIALS }}'
         project_id: ${{ env.PROJECT_ID }}
     
-    - name: Build docker image and push to GCR 
-      uses: docker/build-push-action@v2
-    - run: docker build -t ${{ env.REPOSITORY }} --network=host .
-    - run: docker tag ${{ env.REPOSITORY }} ${{ env.GCR_LOCATION }}/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}:qa
-    - run: gcloud auth configure-docker -q
-    - run: docker push ${{ env.GCR_LOCATION }}/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}:qa 
+    # - name: Build docker image and push to GCR 
+    #   uses: docker/build-push-action@v2
+    # - run: docker build -t ${{ env.REPOSITORY }} --network=host .
+    # - run: docker tag ${{ env.REPOSITORY }} ${{ env.GCR_LOCATION }}/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}:final
+    # - run: gcloud auth configure-docker -q
+    # - run: docker push ${{ env.GCR_LOCATION }}/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}:final 
 
     # - name: Build Status
     #   uses: rtCamp/action-slack-notify@v2
@@ -77,6 +77,7 @@ jobs:
     - id: helm-packaging-and-deployment
       run: cd helm-chart && tar czf base-chart-0.1.0.tgz base-chart/
     - run: kubectl apply -f .k8s
+    - run: ls -la
     - run: helm upgrade -i ${{ env.CHART_NAME }} ./base-chart-0.1.0.tgz --namespace ${{ env.NAMESPACE }} -f ${{ env.APPLICATION_HELM_VALUE }}
     # - run: helm upgrade -i ${{ env.REDIS_NAME }} base-chart-0.1.0.tgz --namespace ${{ env.NAMESPACE }} -f ${{ env.REDIS_HELM_VALUE }}
     # - run: helm upgrade -i ${{ env.REDIS_NAME }} base-chart-0.1.0.tgz --namespace ${{ env.NAMESPACE }} -f ${{ env.REDIS_HELM_VALUE }}
