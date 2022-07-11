@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: new-api
+data:
+  PORT: "3000"
+  RACK_ENV: production
+  RAILS_ENV: production
+  RAILS_LOG_TO_STDOUT: "true"
+  RAILS_SERVE_STATIC_FILES: "true"
+  SECRET_KEY_BASE: "Qy6VTnREtzwBbzgvxY2LJA5QQwFNex4wUtj2qNTTnSXtHykdZM"
+  DATABASE_NAME: "car_market"
+  DATABASE_USER: "origination"
+  DATABASE_PASSWORD: "sleuj!dg#55egd"
+  DATABASE_HOST: "postgres"
+  DATABASE_PORT: "5432"
+  SIDEKIQ_USER: sidekiq
+  SIDEKIQ_PASSWORD: web
+  REDIS_URL_SIDEKIQ: "redis://redis-cluster:6379"
+  REDIS_URL: "redis://redis-cluster:6379"

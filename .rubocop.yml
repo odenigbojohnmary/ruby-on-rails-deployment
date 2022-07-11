@@ -1,0 +1,28 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-rspec
+
+AllCops:
+  Excludes:
+    - db/**/*
+    - bin/**
+
+Style/Documentation:
+  Enabled: no
+
+Rails/SkipsModelValidations:
+  Enabled: no
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/AbcSize:
+  Max: 25
+
+RSpec/ExampleLength:
+  Max: 100
+
+Layout/LineLength:
+  Max: 150
