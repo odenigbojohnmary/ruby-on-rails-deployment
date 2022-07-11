@@ -11,10 +11,6 @@ spec:
       port: {{ .Values.service.http_port }}
       targetPort: {{ .Values.service.http_port }}
       protocol: TCP
-    - name: 'base-v1-grpc-port'
-      port: {{ .Values.service.grpc_port }}
-      targetPort: {{ .Values.service.grpc_port }}
-      protocol: TCP
   selector:
     app.kubernetes.io/name: {{ include "base-v1.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}

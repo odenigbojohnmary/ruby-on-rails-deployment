@@ -27,8 +27,8 @@ valueFrom:
         name: micro-inventory-service-secrets
 
 service:
-    type: NodePort
-    http_port: 3000
+  type: NodePort
+  http_port: 3000
 
 configMapRef:
   name: new-api
@@ -44,7 +44,7 @@ ingress:
           paths:
               - backend:
                 serviceName: new-api-web
-                servicePort: 4020
+                servicePort: 3000
 
     tls: []
     #  - secretName: chart-example-tls
