@@ -37,7 +37,15 @@ securityContext: {}
   # runAsUser: 1000
 
 configMapRef:
-  name: 
+  name: new-api
+
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    # number of pods to be added per time.
+    maxSurge: 1
+    # number of pods to be unavailable during a rolling update.
+    maxUnavailable: 0
 
 Probes:
   readiness:
