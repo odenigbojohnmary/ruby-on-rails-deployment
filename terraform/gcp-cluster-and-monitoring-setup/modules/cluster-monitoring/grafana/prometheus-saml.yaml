@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-ini
+  namespace: default
+data:
+  grafana.ini: |
+    [server]
+      http_port = 3000
+      root_url = https://grafana.qa.myautochek.com
+
+    [auth.google]
+      enabled = true
+      client_id = "494625643113-b1oa426dmb0onsko30h0fggt7o9iutfv.apps.googleusercontent.com"
+      client_secret = "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"
+      scopes = https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email
+      auth_url = https://accounts.google.com/o/oauth2/auth
+      token_url = https://accounts.google.com/o/oauth2/token
+      allowed_domains = qa.myautochek.com autochek.africa
+      allow_sign_up = true
+      redirect_url = https://grafana.qa.myautochek.com/login/google
+
+  env:
+    GF_ROOT_URL = https://grafana.qa.myautochek.com
