@@ -74,7 +74,7 @@ jobs:
       with:
         cluster_name: ${{ env.GKE_CLUSTER }}
         location: ${{ env.GKE_ZONE }}
-    - id: helm packaging and deployment
+    - id: helm-packaging-and-deployment
       run: cd helm-chart && tar czf base-chart-0.1.0.tgz base-chart/
     - run: kubectl apply -f .k8s
     - run: helm upgrade -i ${{ env.CHART_NAME }} base-chart-0.1.0.tgz --namespace ${{ env.NAMESPACE }} -f ${{ env.APPLICATION_HELM_VALUE }}
