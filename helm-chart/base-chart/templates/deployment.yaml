@@ -43,7 +43,7 @@ spec:
               value: ""
           envFrom:
             - configMapRef:
-                name: {{ .Values.configRef.name }}
+                name: {{ .Values.configMapRef.name }}
           ports:
             - name: http
               containerPort: {{ .Vales.service.port }}
