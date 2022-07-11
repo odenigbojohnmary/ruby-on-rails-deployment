@@ -31,15 +31,8 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       serviceAccountName: {{ include "base-chart.serviceAccountName" . }}
-      {{- if .Values.eks_iam.enabled }}
-      securityContext:
-        fsGroup: 65534
-      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
-          securityContext:
-            capabilities:
-              add: ["SYS_TRACE"]
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
