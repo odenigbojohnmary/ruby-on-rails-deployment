@@ -14,7 +14,7 @@ env:
   IMAGE: docker.io/odenigbojohnmary/bravado:final                       # The container image name and tag
   CHART_NAME: new-api-web                           # The Pchart name from helm-charts repo
   PROJECT_CREDENTIALS: ${{ secrets.GCP_STAGING_CREDENTIALS }}  # The GCP JSON Credentials 
-  APPLICATION_HELM_VALUE: helm/application.yaml                            # The helm deployment directory 
+  APPLICATION_HELM_VALUE: helm/app.yaml                            # The helm deployment directory 
   PG_NAME: postgres
   PG_HELM_VALUE: helm/pg.yaml
   NAMESPACE: default                                           # The kubernetes namespace
@@ -75,10 +75,10 @@ jobs:
         cluster_name: ${{ env.GKE_CLUSTER }}
         location: ${{ env.GKE_ZONE }}
     - id: helm-packaging-and-deployment
-      run: cd helm-chart && tar czf base-chart-0.1.0.tgz base-chart/
+      run: cd helm-chart && tar czf base-v1-0.1.0.tgz base-v1/
     - run: kubectl apply -f .k8s
     - run: ls -la
-    - run: helm upgrade -i ${{ env.CHART_NAME }} helm-chart/base-chart-0.1.0.tgz --namespace ${{ env.NAMESPACE }} -f ${{ env.APPLICATION_HELM_VALUE }}
+    - run: helm upgrade -i ${{ env.CHART_NAME }} helm-chart/base-v1-0.1.0.tgz --namespace ${{ env.NAMESPACE }} -f ${{ env.APPLICATION_HELM_VALUE }}
     # - run: helm upgrade -i ${{ env.REDIS_NAME }} base-chart-0.1.0.tgz --namespace ${{ env.NAMESPACE }} -f ${{ env.REDIS_HELM_VALUE }}
     # - run: helm upgrade -i ${{ env.REDIS_NAME }} base-chart-0.1.0.tgz --namespace ${{ env.NAMESPACE }} -f ${{ env.REDIS_HELM_VALUE }}
 

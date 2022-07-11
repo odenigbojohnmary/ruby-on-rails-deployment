@@ -1,0 +1,8 @@
+apiVersion: v1
+appVersion: "1.0"
+description: A Helm chart for Kubernetes
+name: base-v1
+version: 0.1.0
+maintainers:
+    - name: bravado
+      email: odenigbojohnmary@gmail.com
