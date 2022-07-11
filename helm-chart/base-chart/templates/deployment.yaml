@@ -46,7 +46,7 @@ spec:
                 name: {{ .Values.configMapRef.name }}
           ports:
             - name: http
-              containerPort: {{ .Vales.service.port }}
+              containerPort: {{ .Values.service.port }}
               protocol: TCP
           {{- if .Values.probes.liveness.enabled }}
           livenessProbe:
