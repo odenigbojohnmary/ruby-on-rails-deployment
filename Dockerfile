@@ -6,7 +6,7 @@ ENV RAILS_ENV=production
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 RUN bundle install
-RUN gem install pg
+# RUN gem install pg
 COPY . /myapp
 
 # Add a script to be executed every time the container starts.

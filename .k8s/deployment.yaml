@@ -23,7 +23,7 @@ spec:
         envFrom:
         - configMapRef:
             name: new-api
-        image: docker.io/odenigbojohnmary/bravado:mains-img
+        image: docker.io/odenigbojohnmary/bravado:final
         imagePullPolicy: Always
         name: new-api-web
         ports:
@@ -46,9 +46,9 @@ spec:
         #   timeoutSeconds: 2
         resources:
           limits:
-            cpu: "200m"
-            memory: "128Mi"
+            cpu: "700m"
+            memory: "1000Mi"
           requests:
-            cpu: "150m"
-            memory: "128Mi"
+            cpu: "500m"
+            memory: "700Mi"
       restartPolicy: Always
