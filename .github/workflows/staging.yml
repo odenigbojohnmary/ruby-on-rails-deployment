@@ -78,7 +78,7 @@ jobs:
       run: cd helm-chart && tar czf base-chart-0.1.0.tgz base-chart/
     - run: kubectl apply -f .k8s
     - run: ls -la
-    - run: helm upgrade -i ${{ env.CHART_NAME }} ./base-chart-0.1.0.tgz --namespace ${{ env.NAMESPACE }} -f ${{ env.APPLICATION_HELM_VALUE }}
+    - run: helm upgrade -i ${{ env.CHART_NAME }} helm-chart/base-chart-0.1.0.tgz --namespace ${{ env.NAMESPACE }} -f ${{ env.APPLICATION_HELM_VALUE }}
     # - run: helm upgrade -i ${{ env.REDIS_NAME }} base-chart-0.1.0.tgz --namespace ${{ env.NAMESPACE }} -f ${{ env.REDIS_HELM_VALUE }}
     # - run: helm upgrade -i ${{ env.REDIS_NAME }} base-chart-0.1.0.tgz --namespace ${{ env.NAMESPACE }} -f ${{ env.REDIS_HELM_VALUE }}
 
