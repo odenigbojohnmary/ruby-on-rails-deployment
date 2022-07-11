@@ -47,7 +47,7 @@ strategy:
     # number of pods to be unavailable during a rolling update.
     maxUnavailable: 0
 
-Probes:
+probes:
   readiness:
     enabled: true
     path: /health_check
